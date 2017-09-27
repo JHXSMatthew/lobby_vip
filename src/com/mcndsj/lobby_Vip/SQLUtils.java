@@ -5,7 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.mcndsj.lobby_Vip.Database.DatabaseManager;
+import com.mcndsj.JHXSMatthew.Shared.MoneyManager;
+
+
 
 public class SQLUtils {
 	
@@ -24,17 +26,17 @@ public class SQLUtils {
 		ResultSet resultSet = null;
 		int returnValue = -1;
 		try {
-			connection = DatabaseManager.getInstance().getConnection();
+			connection = MoneyManager.getInstance().getConnection();
 			if(connection == null || connection.isClosed()){
 				return -1;
-			}else{
-				statement = connection.createStatement();
-				resultSet = statement.executeQuery("SELECT level FROM `vipStats` Where `name`='"+name+"';");
-				if(resultSet.next()){
-					returnValue = resultSet.getInt("level");
-				}
-			
 			}
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery("SELECT level FROM `vipStats` Where `name`='"+name+"';");
+			if(resultSet.next()){
+				returnValue = resultSet.getInt("level");
+			}
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,7 +61,7 @@ public class SQLUtils {
 		Connection connection = null;
 		Statement statement = null;
 		try{
-			connection = DatabaseManager.getInstance().getConnection();
+			connection = MoneyManager.getInstance().getConnection();
 			if(connection == null || connection.isClosed()){
 				throw new Exception("Error when writting to VIPDB, no connection!");
 			}

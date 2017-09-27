@@ -17,7 +17,7 @@ public class API implements APIInterface{
 
 	@Override
 	public void setVip(SetVipEvent callback, String name, VipType type) {
-		
+		LobbyVip.get().setVip(callback, name, type);
 	}
 
 

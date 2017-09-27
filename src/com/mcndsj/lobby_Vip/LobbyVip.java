@@ -23,7 +23,7 @@ public class LobbyVip extends JavaPlugin {
 		pool = Executors.newSingleThreadExecutor();
 		cache = new ConcurrentHashMap<String,Integer>();
 		api = new API();
-		this.getServer().getPluginManager().registerEvents(new Listeners(), this);
+		this.getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 	}
 	
 	
@@ -63,6 +63,7 @@ public class LobbyVip extends JavaPlugin {
 				try {
 					SQLUtils.setVipLevel(name, type.getLevel(), !isVip(name));
 					call.callBack(true);
+					cache.put(name, type.getLevel());
 				} catch (Exception e) {
 					call.callBack(false);
 					e.printStackTrace();

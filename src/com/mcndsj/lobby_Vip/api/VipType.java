@@ -4,9 +4,9 @@ import org.bukkit.ChatColor;
 
 public enum VipType {
 
-	VIP(1 , ChatColor.GOLD + ChatColor.BOLD.toString()+"VIP")
-	,VIP_PLUS(2 , ChatColor.GOLD + ChatColor.BOLD.toString()+"VIP+")
-	,MVP(3 , ChatColor.GOLD + ChatColor.BOLD.toString()+"MVP")
+	VIP(1 , ChatColor.DARK_GREEN + ChatColor.BOLD.toString()+"VIP")
+	,VIP_PLUS(2 , ChatColor.GREEN + ChatColor.BOLD.toString()+"VIP+")
+	,MVP(3 , ChatColor.YELLOW + ChatColor.BOLD.toString()+"MVP")
 	,MVP_PLUS(4 , ChatColor.GOLD + ChatColor.BOLD.toString()+"MVP+");
 	
 	private int level;
